@@ -1,0 +1,40 @@
+
+
+HomeFragment -> welcome, start game button -> goto NewGameFragment
+
+NewGameFragment -> inputfield player name and submitbutton, list under with names, Start game button
+
+GameFragment -> menu bar top, card with dare, challenge or question, punishment in drinks, name on the person whose turn it is, challenge completed button go to ScoreFragment and took consequencebutton go to scoreFragment
+
+goToScoreFragment {}
+
+onChallengeCompleted {
+    goToScoreFragment
+}
+
+onTookConsequence {
+
+    player took consequence add sips to player score
+    goToScoreFragment
+}
+
+
+ScoreFragment -> show player names and amount of sips, continue button. Rank -> Person who has drank the least as first place.
+
+
+onNextRound {
+
+    getRandomPlayer/playerName
+    set currentPlayer in Game object
+    set string card_playername
+
+    getRandomChallengeAndConsequence
+    set currentCard in Game object
+    set strings card_challenge and card_consequence
+
+}
+
+
+
+DB challenges table
+id | challenges/questions | dares

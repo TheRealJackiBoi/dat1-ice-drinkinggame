@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+
+
+object HomeFragment
+
+object NewGameFragment
+
+object GameFragment
+
+object ScoreFragment
+
+object Player
+
+object Card
+
+object Game
+
+
+Game <-- NewGameFragment
+Game <-- GameFragment
+Game <-- ScoreFragment
+Game --> Player
+Game --> Card
+
+
+
+HomeFragment --> NewGameFragment
+
+NewGameFragment --> GameFragment
+
+GameFragment <--> ScoreFragment
+
+
+
+
+
+@enduml
