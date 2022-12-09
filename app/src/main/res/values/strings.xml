@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">dat1-ice-drinkinggame</string>
+
+
+
+    <string name="card_playername">Julius</string>
+    <string name="card_question">skal slikke</string>
+    <string name="card_consequence">7</string>
+</resources>
+
