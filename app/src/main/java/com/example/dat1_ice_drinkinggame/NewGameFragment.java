@@ -89,14 +89,14 @@ public class NewGameFragment extends Fragment {
                 String getInput = txt.getText().toString();
 
                 if(playerArr.contains(getInput)) {
-                    Toast.makeText(getActivity(), "Username already exists", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Username already exists", Toast.LENGTH_SHORT).show();
                 }
 
                 else if(getInput == null || getInput.trim().equals("")) {
-                    Toast.makeText(getActivity(), "Input field cannot be empty", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "Input field cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
                     playerArr.add(getInput);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1);
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, playerArr);
                     show.setAdapter(adapter);
                     ((EditText)view.findViewById(R.id.playerName)).setText("");
                 }
