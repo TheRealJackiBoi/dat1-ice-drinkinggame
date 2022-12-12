@@ -9,8 +9,15 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!-- NewGameFragment text -->
     <string name="new_game_start">Start Game!</string>
     <string name="new_game_title">Insert player names</string>
     <string name="new_game_add">Add Player</string>
+    
+    <!-- GameFragment text -->
+    <string name="challenge_text">This is the challenge</string>
+    <string name="sips_text">10</string>
+
 </resources>
 
