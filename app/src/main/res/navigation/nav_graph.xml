@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+
+    <fragment
+        android:id="@+id/mainActivity"
+        android:name="com.example.dat1_ice_drinkinggame.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
+        <action
+            android:id="@+id/action_mainActivity_to_newGameFragment"
+            app:destination="@id/newGameFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_startNewGame"
+        app:destination="@+id/new_game_fragment"
+
+    />
+    <fragment
+        android:id="@+id/newGameFragment"
+        android:name="com.example.dat1_ice_drinkinggame.NewGameFragment"
+        android:label="new_game_fragment"
+        tools:layout="@layout/new_game_fragment" />
+
+</navigation>
