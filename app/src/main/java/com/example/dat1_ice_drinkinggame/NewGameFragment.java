@@ -67,6 +67,7 @@ public class NewGameFragment extends Fragment {
                         .navigate(R.id.action_NewGameFragment_to_GameFragment);
             }
         });
+        // Code to add text (players) inputted in EditText box @design to ListView array
         txt = (EditText) view.findViewById(R.id.playerName);
         show = (ListView) view.findViewById(R.id.listPlayers);
         add = (Button) view.findViewById(R.id.new_game_add);
