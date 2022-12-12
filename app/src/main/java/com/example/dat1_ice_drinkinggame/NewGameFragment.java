@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,8 +50,6 @@ public class NewGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.new_game_fragment, container, false);
 
-        Button b = (Button) v.findViewById(R.id.new_game_startGame);
-        b.setOnClickListener((View.OnClickListener) this);
 
         return v;
     }
@@ -60,6 +57,8 @@ public class NewGameFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // TODO: switch fragment
+        /*
         binding.newGameStartGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +66,7 @@ public class NewGameFragment extends Fragment {
                         .navigate(R.id.action_NewGameFragment_to_GameFragment);
             }
         });
+        */
         txt = (EditText) view.findViewById(R.id.playerName);
         show = (ListView) view.findViewById(R.id.listPlayers);
         add = (Button) view.findViewById(R.id.new_game_add);
