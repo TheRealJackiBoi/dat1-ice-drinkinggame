@@ -2,9 +2,12 @@
     <string name="app_name">dat1-ice-drinkinggame</string>
 
 
-
     <string name="card_playername">Julius</string>
     <string name="card_question">skal slikke</string>
     <string name="card_consequence">7</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
 
