@@ -51,6 +51,6 @@ public class Player implements Comparable{
     }
 
     public String toString() {
-        return "PLAYER: " +name+ " has had " +sips+ " sips!";
+        return name+ " has had " +sips+ " sips!";
     }
 }
