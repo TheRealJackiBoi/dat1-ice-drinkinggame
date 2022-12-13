@@ -17,5 +17,9 @@
     <string name="challenge_text">This is the challenge</string>
     <string name="sips_text">10</string>
 
+    <!-- ScoreFragment text -->
+    <string name="scoreboard_text">Wauw you must be so drunk right now</string>
+    <string name="scoreboard_continue">Continue</string>
+
 </resources>
 
