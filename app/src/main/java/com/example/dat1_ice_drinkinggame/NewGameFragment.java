@@ -96,8 +96,5 @@ public class NewGameFragment extends Fragment {
                 }
             }
         });
-        // TODO: Make sure code is functional
-        //  maybe add graphics?
-        //  work on ScoreBoardFragment
     }
 }
