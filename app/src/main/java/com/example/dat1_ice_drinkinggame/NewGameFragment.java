@@ -84,7 +84,7 @@ public class NewGameFragment extends Fragment {
                 else if(input == null || input.trim().equals("")) {
                     Toast.makeText(getActivity(), "Input field cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    game.addPlayer(new Player(input));
+                    game.addPlayer(new Player(input,0));
                     ArrayList<String> strings = new ArrayList<>();
                     for (Player p :
                             game.getPlayers()) {

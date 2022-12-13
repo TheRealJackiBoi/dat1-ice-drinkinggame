@@ -1,6 +1,8 @@
 package com.example.dat1_ice_drinkinggame;
 
+import android.os.Build;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Game {
 
@@ -33,5 +35,14 @@ public class Game {
 
     public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
+    }
+
+    public ArrayList<Player> sortPlayersForScoreBoard (ArrayList<Player> players) {
+        Collections.sort(players);
+
+        for (Player p: players) {
+            System.out.println(p);
+        }
+        return players;
     }
 }
