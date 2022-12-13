@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,21 +23,13 @@ public class NewGameFragment extends Fragment {
 
     private NewGameFragmentBinding binding;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
     EditText txt;
     ListView show;
     Button add;
-    ArrayList<String> playerArr = new ArrayList<>();
 
     public static NewGameFragment newInstance(String param1, String param2) {
         NewGameFragment fragment = new NewGameFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -50,7 +43,6 @@ public class NewGameFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.new_game_fragment, container, false);
 
-
         return v;
     }
 
@@ -58,34 +50,49 @@ public class NewGameFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // TODO: switch fragment
-        /*
-        binding.newGameStartGame.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.new_game_startGame).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(NewGameFragment.this)
-                        .navigate(R.id.action_NewGameFragment_to_GameFragment);
+
+                if(Game.getInstance().getPlayers().size() != 0) {
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.fragmentContainerView3, GameFragment.class, null)
+                                    .setReorderingAllowed(true)
+                                    .addToBackStack("GameFragment") // name can be null
+                                    .commit();
+
+                } else {
+                    Toast.makeText(getContext(),"Add players to start game", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        */
+
         txt = (EditText) view.findViewById(R.id.playerName);
         show = (ListView) view.findViewById(R.id.listPlayers);
         add = (Button) view.findViewById(R.id.new_game_add);
+        Game game = Game.getInstance();
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String getInput = txt.getText().toString();
+                String input = txt.getText().toString();
 
-                if(playerArr.contains(getInput)) {
+                if(game.getPlayers().contains(input)) {
                     Toast.makeText(getActivity(), "Username already exists", Toast.LENGTH_SHORT).show();
                 }
-                else if(getInput == null || getInput.trim().equals("")) {
+                else if(input == null || input.trim().equals("")) {
                     Toast.makeText(getActivity(), "Input field cannot be empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    playerArr.add(getInput);
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, playerArr);
+                    game.addPlayer(new Player(input));
+                    ArrayList<String> strings = new ArrayList<>();
+                    for (Player p :
+                            game.getPlayers()) {
+                        strings.add(p.getName());
+                    }
+                    ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, strings);
                     show.setAdapter(adapter);
-                    ((EditText)view.findViewById(R.id.playerName)).setText("");
+                    txt.setText("");
                 }
             }
         });

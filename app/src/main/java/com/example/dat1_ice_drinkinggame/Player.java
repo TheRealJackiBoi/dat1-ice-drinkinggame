@@ -1,17 +1,39 @@
 package com.example.dat1_ice_drinkinggame;
 
 public class Player {
-    int id;
-    String name;
-
-    public Player(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private final String name;
+    private int sips;
 
     public Player(String name) {
         this.name = name;
+        sips = 0;
     }
 
+    public void addSips(int sips) {this.sips += sips;}
+
+    public String getName() {
+        return name;
+    }
+
+    public int getSips() {
+        return sips;
+    }
+
+
+    @Override
+    public boolean equals(Object checkName) {
+        boolean retVal = false;
+
+        if (checkName instanceof String){
+            String s = (String) checkName;
+            retVal = this.name.equals(s);
+        }
+        else if(checkName instanceof Player) {
+            String s = ((Player) checkName).name;
+            retVal = this.name.equals(s);
+        }
+
+        return retVal;
+    }
 
 }
