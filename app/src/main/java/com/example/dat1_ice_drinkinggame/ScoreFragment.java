@@ -49,22 +49,30 @@ public class ScoreFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         listView = (ListView) view.findViewById(R.id.scorePlayers);
-        ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, game.getPlayers());
+        ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, game.sortPlayersForScoreBoard());
         listView.setAdapter(adapter);
 
+        //Continue button
+        //set visibility to invisible if game is finished
+        //else create onClickListener to go back to GameFragment
         continueB = (Button) view.findViewById(R.id.scoreContinue);
-        continueB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        if (Game.getInstance().isGameEnded()) {
+            continueB.setVisibility(view.INVISIBLE);
+        }
+        else {
+            continueB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-
+                    //Switch fragment
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     fragmentManager.beginTransaction()
                             .replace(R.id.fragmentContainerView3, GameFragment.class, null)
                             .setReorderingAllowed(true)
                             .addToBackStack("GameFragment") // name can be null
                             .commit();
-            }
-        });
+                }
+            });
+        }
     }
 }

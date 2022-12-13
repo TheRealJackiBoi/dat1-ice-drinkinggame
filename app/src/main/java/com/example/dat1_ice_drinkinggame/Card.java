@@ -9,4 +9,12 @@ public class Card {
         this.challenge = challenge;
         this.sips = sips;
     }
+
+    public String getChallenge() {
+        return challenge;
+    }
+
+    public int getSips() {
+        return sips;
+    }
 }

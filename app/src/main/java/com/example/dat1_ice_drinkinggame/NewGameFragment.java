@@ -71,19 +71,24 @@ public class NewGameFragment extends Fragment {
         txt = (EditText) view.findViewById(R.id.playerName);
         show = (ListView) view.findViewById(R.id.listPlayers);
         add = (Button) view.findViewById(R.id.new_game_add);
-        Game game = Game.getInstance();
+        Game game = Game.getInstance(getActivity());
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String input = txt.getText().toString();
 
-                if(game.getPlayers().contains(input)) {
+                //player already exists in array
+                if(game.playerExists(input)) {
                     Toast.makeText(getActivity(), "Username already exists", Toast.LENGTH_SHORT).show();
                 }
+                //input is empty
                 else if(input == null || input.trim().equals("")) {
                     Toast.makeText(getActivity(), "Input field cannot be empty", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                //add player to Game players list and listview
+                else {
                     game.addPlayer(new Player(input,0));
                     ArrayList<String> strings = new ArrayList<>();
                     for (Player p :

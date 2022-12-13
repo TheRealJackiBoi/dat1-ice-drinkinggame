@@ -3,7 +3,7 @@ package com.example.dat1_ice_drinkinggame;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class Player implements Comparable{
+public class Player {
     private final String name;
     private int sips;
 
@@ -29,6 +29,7 @@ public class Player implements Comparable{
         return sips;
     }
 
+
     @Override
     public boolean equals(Object checkName) {
         boolean retVal = false;
@@ -42,12 +43,6 @@ public class Player implements Comparable{
         }
 
         return retVal;
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        int comparesips = ((Player)o).getSips();
-        return this.getSips() - comparesips;
     }
 
     public String toString() {

@@ -28,7 +28,7 @@
                 android:id="@+id/challengeTextView"
                 android:layout_width="183dp"
                 android:layout_height="112dp"
-                android:layout_marginTop="96dp"
+                android:layout_marginTop="136dp"
                 android:text="@string/challenge_text"
                 android:textAlignment="center"
                 android:textColor="@android:color/primary_text_light"
@@ -71,6 +71,21 @@
                 android:text="sips"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/challengeTextView" />
+
+            <TextView
+                android:id="@+id/card_player_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="44dp"
+                android:text="@string/card_playername"
+                android:textColor="@android:color/primary_text_light"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/challengeTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
