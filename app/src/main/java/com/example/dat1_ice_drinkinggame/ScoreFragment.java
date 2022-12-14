@@ -53,16 +53,36 @@ public class ScoreFragment extends Fragment {
         listView.setAdapter(adapter);
 
         //Continue button
-        //set visibility to invisible if game is finished
+        //Change button to go to home instead... and clear players array in game, if game is finished
         //else create onClickListener to go back to GameFragment
         continueB = (Button) view.findViewById(R.id.scoreContinue);
         if (Game.getInstance().isGameEnded()) {
-            continueB.setVisibility(view.INVISIBLE);
-        }
-        else {
+
+            continueB.setText("Home");
+
             continueB.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    //clear players
+                    Game game = Game.getInstance();
+                    game.getPlayers().clear();
+                    game.setGameEnded(false);
+                    //Switch fragment
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    fragmentManager.beginTransaction()
+                            .replace(R.id.fragmentContainerView3, HomeFragment.class, null)
+                            .setReorderingAllowed(true)
+                            .addToBackStack("Home") // name can be null
+                            .commit();
+                }
+            });
+        }
+        else {
+
+            continueB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    continueB.setText("Continue");
 
                     //Switch fragment
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
