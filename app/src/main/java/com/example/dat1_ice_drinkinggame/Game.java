@@ -40,7 +40,6 @@ public class Game {
         players = new ArrayList<>();
         cards = FileIO.loadCards(activity);
     }
-
     private Game() {
         players = new ArrayList<>();
         cards = new ArrayList<>();
@@ -49,6 +48,7 @@ public class Game {
     public boolean playerExists(String playerName) {
         for (Player p :
                 players) {
+            //compares player names
             if (p.equals(playerName)) {
                 return true;
             }
