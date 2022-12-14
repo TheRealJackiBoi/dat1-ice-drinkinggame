@@ -18,7 +18,7 @@ public class FileIO {
 
 
     public static ArrayList<Card> loadCards(Activity activity) {
-        System.out.println(activity.getApplicationInfo().dataDir + File.separatorChar + "Dares.csv");
+        System.out.println(activity.getApplicationInfo().dataDir + File.separatorChar + "dares.csv");
         ArrayList<String> cardData = readFromFile(activity.getResources().openRawResource(R.raw.dares));
         ArrayList<Card> cards = new ArrayList<Card>();
 

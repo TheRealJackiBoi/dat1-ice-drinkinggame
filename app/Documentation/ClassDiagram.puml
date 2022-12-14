@@ -1,0 +1,70 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class HomeFragment {
+}
+
+class NewGameFragment {
+
+}
+
+class GameFragment
+
+class ScoreFragment
+
+class Player {
+-final String name
+-int sips
+
++boolean equals(Object checkName)
+}
+
+class Card {
+-final String challenge
+-final int sips
+}
+
+class Game {
+-game_instance
+-final ArrayList<Player> players
+-ArrayList<Card> cards
+-Player currentPlayer
+-Player currentCard
+-boolean isGameEnded
+
++Game getInstance()
++Game getInstance(Activity activity)
+-Game()
+-Game(Activity activity)
++boolean playerExists(String playerName)
++ArrayList<Player> sortPlayersForScoreBoard()
+}
+
+class SortBySips extends Comparator {
++int compare(Player a, Player b)
+}
+
+class FileIO {
++static ArrayList<Card> loadCards(Activity activity)
+-static ArrayList<String> readFromFile(InputStream is)
+}
+
+Game --o NewGameFragment
+Game --o GameFragment
+Game --o ScoreFragment
+Game o-- Player
+Game o-- Card
+Game o-- FileIO
+
+
+Game::sortPlayersForScoreBoard o-- SortBySips
+HomeFragment o-- NewGameFragment
+
+NewGameFragment o-- GameFragment
+
+GameFragment *-* ScoreFragment
+
+
+
+
+@enduml

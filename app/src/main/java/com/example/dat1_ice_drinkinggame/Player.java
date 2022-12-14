@@ -7,11 +7,6 @@ public class Player {
     private final String name;
     private int sips;
 
-    public Player(String name, int sips) {
-        this.name = name;
-        this.sips = sips;
-    }
-
     public Player(String name) {
         this.name = name;
         sips = 0;

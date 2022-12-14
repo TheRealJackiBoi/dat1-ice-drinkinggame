@@ -89,7 +89,7 @@ public class NewGameFragment extends Fragment {
                 }
                 //add player to Game players list and listview
                 else {
-                    game.addPlayer(new Player(input,0));
+                    game.addPlayer(new Player(input));
                     ArrayList<String> strings = new ArrayList<>();
                     for (Player p :
                             game.getPlayers()) {
