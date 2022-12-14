@@ -111,10 +111,9 @@ public class Game {
 
 }
 
+//comparator for sortPlayersForScoreBoard
 class SortBySips implements Comparator<Player>
 {
-        // Used for sorting in ascending order of
-                // roll number
         public int compare(Player a, Player b) {
             return a.getSips() - b.getSips();
         }
